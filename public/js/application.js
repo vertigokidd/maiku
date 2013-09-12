@@ -2,18 +2,48 @@
 
 $(document).ready(function() {
 
-  function returnCount(word, count) {
-    return count - (word.length)
+  function returnCount(words, count) {
+    totalSyllables = 0
+    for (var i=0;i<words.length;i++){
+      words[i] = new Word(words[i])
+      totalSyllables += words[i].findLy().findEd().markVowelCombos().markConsCombos().markSilentEs().markRemainingVowels().countSyllables();
+    }
+    return (count - totalSyllables)
   }
 
 
+// Live Document Checking //
+
+
+  $("#lineOne").keyup(function(){
+    var line = $(this).val();
+    words = line.split(/[ ,]+/);
+    $("#lineOneSCount").html("<p>Syllables Remaining: " + returnCount(words, 5) + "</p>");
+  });
+
+  $("#lineTwo").keyup(function(){
+    var line = $(this).val();
+    words = line.split(/[ ,]+/);
+    $("#lineTwoSCount").html("<p>Syllables Remaining: " + returnCount(words, 7) + "</p>");
+  });
+
+  $("#lineThree").keyup(function(){
+    var line = $(this).val();
+    words = line.split(/[ ,]+/);
+    $("#lineThreeSCount").html("<p>Syllables Remaining: " + returnCount(words, 5) + "</p>");
+  });
+
+// Word object and object methods //
+
   var consonants = "bcdfghjklmnpqrstvwxz";
   var vowels = "aeiouy";
+
 
   function Word(word) {
     this.word = word
     this.suffixBonus = 0
   }
+
 
   Word.prototype.findLy = function() {
     var ly = new RegExp("ly$", "ig");
@@ -34,13 +64,13 @@ $(document).ready(function() {
   }
 
   Word.prototype.markVowelCombos = function(){
-    var vowelCombos = new RegExp("iou|eau|ai|au|ay|ea|ee|ei|oa|oi|oo|ou|ui|oy", "ig");
+    var vowelCombos = new RegExp("you|iou|eau|ai|au|ay|ey|ea|ee|ei|oa|oi|oo|ou|ui|oy", "ig");
     this.word = this.word.replace(vowelCombos, "@");
     return this;
   }
 
   Word.prototype.markConsCombos = function(){
-    var consCombos = new RegExp("qu|ng|ch|rt|[#{" + consonants + "}h]", "ig");
+    var consCombos = new RegExp("qu|ce|ng|ch|rt|[#{" + consonants + "}h]", "ig");
     this.word = this.word.replace(consCombos, "=");
     return this;
   }
@@ -57,48 +87,11 @@ $(document).ready(function() {
     return this;
   }
 
-
-  // function markSyllables(word) {
-  //   markVowelCombos(word, function(response){
-  //     return markConsCombos(response);
-  //   });
-  // }
-
-  // function markVowelCombos(word, response) {
-  //   var vowelCombos = new RegExp("iou|eau|ai|au|ay|ea|ee|ei|oa|oi|oo|ou|ui|oy");
-  //   response = word.replace(vowelCombos, "@");
-  //   return response;
-  // }
-
-  // function markConsCombos(word) {
-  //   var consCombos = new RegExp("qu|ng|ch|rt|[#{" + consonants + "}h]");
-  //   response = word.replace(consCombos, "=");
-  //   return response
-  // }
-
-  // function marksilentEs(word) {
-  //   var silentE = new RegExp("[#{" + vowels + "}@][#{" + consonants + "}=]e\$");
-  //   response = word.replace(silentE, "@|");
-  //   return response
-  // }
-
-  // function markRemainingVowels(word) {
-  //   var remainingVowels = new RegExp("[#{" + vowels + "}]");
-  //   return word.replace(remainingVowels, "@");  
-  // }
-
-  $("#lineOne").keyup(function(){
-    var lineOne = $(this).val();
-    $("#lineOneSCount").html("<p>Syllables Remaining: " + returnCount(lineOne, 7) + "</p>");
-  });
-
-  $("#lineTwo").keyup(function(){
-    var lineTwo = $(this).val();
-    $("#lineTwoSCount").html("<p>Syllables Remaining: " + markSyllables(lineTwo) + "</p>");
-  });
-
-
-
+  Word.prototype.countSyllables = function(){
+    var goalCounter = RegExp("@", "g");
+    var count = this.word.match(goalCounter);
+    return count.length + this.suffixBonus;
+  }
 
 
 

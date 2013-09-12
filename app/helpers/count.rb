@@ -24,9 +24,9 @@ def count_syllables(word)
     processed.gsub!(/ed$/, "")
   end
   #puts "*** 1 #{processed}"
-  processed.gsub!(/iou|eau|ai|au|ay|ea|ee|ei|oa|oi|oo|ou|ui|oy/, "@") #vowel combos
+  processed.gsub!(/you|iou|eau|ai|au|ay|ea|ee|ei|oa|oi|oo|ou|ui|oy/, "@") #vowel combos
   #puts "*** 2 #{processed}"
-  processed.gsub!(/qu|ng|ch|rt|[#{consonants}h]/, "=") #consonant combos
+  processed.gsub!(/qu|ng|ch|ce|rt|[#{consonants}h]/, "=") #consonant combos
   #puts "*** 3 #{processed}"
   processed.gsub!(/[#{vowels}@][#{consonants}=]e$/, "@|") # remove silent e
   #puts "*** 4 #{processed}"
@@ -45,5 +45,7 @@ p count_syllables('amsterdam') == 3
 p count_syllables('lightning') == 2
 p count_syllables('bureau') == 2
 p count_syllables('aspiring') == 3
+p count_syllables('you') == 1
+p count_syllables('prince') == 1
 
 end
