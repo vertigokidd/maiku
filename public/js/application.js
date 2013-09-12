@@ -64,7 +64,7 @@ $(document).ready(function() {
   }
 
   Word.prototype.markVowelCombos = function(){
-    var vowelCombos = new RegExp("you|iou|eau|ai|au|ay|ey|ea|ee|ei|oa|oi|oo|ou|ui|oy", "ig");
+    var vowelCombos = new RegExp("you|yea|iou|eau|ai|au|ay|ey|ea|ee|ei|oa|oi|oo|ou|ui|oy", "ig");
     this.word = this.word.replace(vowelCombos, "@");
     return this;
   }

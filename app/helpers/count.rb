@@ -47,5 +47,6 @@ p count_syllables('bureau') == 2
 p count_syllables('aspiring') == 3
 p count_syllables('you') == 1
 p count_syllables('prince') == 1
+p count_syllables("can't") == 1
 
 end
