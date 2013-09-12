@@ -7,3 +7,12 @@
 th {
   text-align: left;
 }
+
+
+input {
+  display:block;
+}
+
+p {
+  margin:10px 0;
+}
