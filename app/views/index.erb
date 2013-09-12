@@ -1,23 +1,12 @@
-<div class="container">
-  <h1>Welcome to Sinatra!</h1>
-  <p>Hello, world!</p>
+<form>
+  <label for="line_one">First Line:<input id="lineOne" type="text" name="line_one"></input>
+  <div id="lineOneSCount"><p>Syllables Remaining: 5</p></div><label>
 
-  <table>
-    <tr>
-      <th>File Description</th>
-      <th>File Location</th>
-    </tr>
-    <tr>
-      <td>This view file</td>
-      <td><code><%= __FILE__.gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The layout file</td>
-      <td><code><%= File.expand_path('../layout.erb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The current controller</td>
-      <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-  </table>
-</div>
+  <label for="line_two">Second Line:<input id="lineTwo" type="text" name="line_two"></input>
+  <div id="lineTwoSCount"><p>Syllables Remaining: 7</p></div><label>
+
+  <label for="line_three">Third Line:<input id="lineThree" type="text" name="line_three"></input>
+  <div id="lineThreeSCount"><p>Syllables Remaining: 5</p></div><label>
+
+  <button>submit</button>
+</form>
