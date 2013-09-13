@@ -41,8 +41,6 @@ post '/' do
 #{params[:poem][:line_two]}
 #{params[:poem][:line_three]}
   TWEET
-  Haiku.create(params[:poem])
-  p params
   if request.xhr?
     Twitter.update(@tweet)  
     random = rand(1..Haiku.count)
