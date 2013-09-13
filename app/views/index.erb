@@ -1,7 +1,11 @@
 <div class="page-elements">
 <h1>Maiku</h1>
 <h2>Make a Haiku. Share it.</h2>
+<% if @feedback %>
+<p id="tweetfeedback" hidden="true">Your poem has been tweeted. Write another?</p>
+<% else %>
 <p id="userfeedback" hidden="true">Your poem has been tweeted. Write another?</p>
+<% end %>
 <form class="poem-form" action="/" method="POST">
   <label for="line_one">First Line:<input id="lineOne" type="text" name="poem[line_one]" autocomplete="off"></input>
   <div id="lineOneCount" class="count-div"><p>Syllables Remaining: 5</p></div></label>

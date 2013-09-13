@@ -49,6 +49,12 @@ h4 a {
   color:#5959AB;
 }
 
+#tweetfeedback {
+  position:absolute;
+  left:35%;
+  color:#5959AB;
+}
+
 
 input {
   display:block;

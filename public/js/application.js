@@ -17,13 +17,7 @@ $(document).ready(function() {
     });
   });
 
-  // $("button").last().click(function(event){
-  //   event.preventDefault();
-  //   $.get('/login', function(data) {
-  //     /*optional stuff to do after success */
-  //   });
-  // });
-
+  $("#tweetfeedback").fadeIn('slow').delay(2000).fadeOut('slow');
 
 // Count Syllables Using Word Object and Chaining Methods //
 

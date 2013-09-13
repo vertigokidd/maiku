@@ -25,8 +25,12 @@ get '/auth' do
   tweeter = Twitter::Client.new(:oauth_token => user_token,
                                 :oauth_token_secret => user_secret
                                 )
-  tweeter.update(session[:tweet] + "  (made with @maikuapp)")
-  redirect '/'
+  tweeter.update(session[:tweet] + "(made with @maikuapp)")
+
+  random = rand(1..Haiku.count)
+  @haiku = Haiku.find(random)
+  @feedback = "true"
+  erb :index
 end
 
 # POST ==============================
