@@ -6,7 +6,7 @@ get '/' do
   if @haiku.author[0] == "@"
     @author = @haiku.author
     @link = "http://twitter.com/#{@haiku.author[1..-1]}"
-  elsif @haiku.author != nil
+  elsif @haiku.author != ""
     @author = @haiku.author
   else
     @author = "anonymous"
