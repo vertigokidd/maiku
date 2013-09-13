@@ -1,18 +1,81 @@
+body {
+  background-image:url("/images/sakurablossoms.png");
+  font-family: 'Quattrocento', serif;
+}
+
 .container {
   margin: 20px auto;
   width: 600px;
-  padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+  padding: 0px 0px 0px 0px;
 }
+
 th {
   text-align: left;
+}
+
+h1 {
+  font-size:3em;
+  margin-bottom: 10px;
+  text-align:center;
+}
+
+h2 {
+  font-size:1em;
+  text-align: center;
+}
+
+/* Poem */
+
+h3 {
+  font-size:1.2em;
+}
+
+h4 {
+  text-align: right;
+}
+
+h4 a {
+  text-decoration: none;
 }
 
 
 input {
   display:block;
+  margin
 }
 
 p {
   margin:10px 0;
+}
+
+.poem-form {
+  margin:50px 0;
+  display:inline-block;
+  width:250px;
+  padding:0;
+}
+
+.count-div {
+  margin:0 0 20px 0;
+}
+
+.selection {
+  display:inline-block;
+  position:relative;
+  top:-125px;
+}
+
+button {
+  margin:20px auto;
+}
+
+footer {
+  margin-top:150px;
+  font-size:0.7em;
+  text-align:center;
+}
+
+footer a{
+  text-decoration: none;
+  color:black;
 }

@@ -18,19 +18,19 @@ $(document).ready(function() {
   $("#lineOne").keyup(function(){
     var line = $(this).val();
     words = line.split(/[ ,]+/);
-    $("#lineOneSCount").html("<p>Syllables Remaining: " + returnCount(words, 5) + "</p>");
+    $("#lineOneCount").html("<p>Syllables Remaining: " + returnCount(words, 5) + "</p>");
   });
 
   $("#lineTwo").keyup(function(){
     var line = $(this).val();
     words = line.split(/[ ,]+/);
-    $("#lineTwoSCount").html("<p>Syllables Remaining: " + returnCount(words, 7) + "</p>");
+    $("#lineTwoCount").html("<p>Syllables Remaining: " + returnCount(words, 7) + "</p>");
   });
 
   $("#lineThree").keyup(function(){
     var line = $(this).val();
     words = line.split(/[ ,]+/);
-    $("#lineThreeSCount").html("<p>Syllables Remaining: " + returnCount(words, 5) + "</p>");
+    $("#lineThreeCount").html("<p>Syllables Remaining: " + returnCount(words, 5) + "</p>");
   });
 
 // Word object and object methods //
