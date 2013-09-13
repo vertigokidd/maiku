@@ -1,7 +1,7 @@
 def tweets_stale?
   item = Haiku.last
   now = Time.new
-  if ((Time.new - item.created_at) / 60) > 1
+  if ((now - item.created_at) / 60) > 120
     true
   else 
     false
