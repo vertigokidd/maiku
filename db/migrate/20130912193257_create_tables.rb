@@ -4,7 +4,7 @@ class CreateTables < ActiveRecord::Migration
       t.string :line_one
       t.string :line_two
       t.string :line_three
-      t.string :author
+      t.string :created_at
       t.timestamps
     end
   end
