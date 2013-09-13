@@ -4,9 +4,14 @@ body {
 }
 
 .container {
-  margin: 20px auto;
+  margin: 0 auto;
   width: 600px;
   padding: 0px 0px 0px 0px;
+}
+
+.page-elements {
+  padding:10px;
+  opacity:0.8;
 }
 
 th {
@@ -38,6 +43,18 @@ h4 a {
   text-decoration: none;
 }
 
+#userfeedback {
+  position:absolute;
+  left:35%;
+  color:#5959AB;
+}
+
+#tweetfeedback {
+  position:absolute;
+  left:35%;
+  color:#5959AB;
+}
+
 
 input {
   display:block;
@@ -48,11 +65,29 @@ p {
   margin:10px 0;
 }
 
+.sharebox {
+  width:275px;
+}
+
+.sharetext {
+  text-align:center;
+  margin-top:40px;
+  font-size:1.2em;
+}
+
+.or {
+  text-align:center;
+}
+
 .poem-form {
   margin:50px 0;
   display:inline-block;
   width:250px;
   padding:0;
+}
+
+.poem-form input {
+  width:275px;
 }
 
 .count-div {
@@ -62,15 +97,26 @@ p {
 .selection {
   display:inline-block;
   position:relative;
-  top:-125px;
+  left:100px;
+  top:-250px;
 }
 
-button {
-  margin:20px auto;
+.button {
+  display:block;
+  padding:10px;
+  margin:20px 0;
+  width:100%;
+  background-color:#AAD4BF;
+  border:none;
+  border-radius:5px;
+}
+
+.button:hover {
+  background-color:#AAD4D4;
 }
 
 footer {
-  margin-top:150px;
+  margin-top:30px;
   font-size:0.7em;
   text-align:center;
 }
