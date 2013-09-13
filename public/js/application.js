@@ -6,7 +6,7 @@ $(document).ready(function() {
     totalSyllables = 0
     for (var i=0;i<words.length;i++){
       words[i] = new Word(words[i])
-      totalSyllables += words[i].findLy().findEd().markVowelCombos().markConsCombos().markSilentEs().markRemainingVowels().countSyllables();
+      totalSyllables += words[i].findLy().findEd().findTailEs().markVowelCombos().markConsCombos().markSilentEs().markRemainingVowels().countSyllables();
     }
     return (count - totalSyllables)
   }
@@ -63,14 +63,23 @@ $(document).ready(function() {
     return this;
   }
 
+  Word.prototype.findTailEs = function(){
+    var es = new RegExp("ce$|se$", "ig");
+    if (es.test(this.word)) {
+      this.word = this.word.replace(es, "")
+      this.suffixBonus = 0;
+    }
+    return this;
+  }
+
   Word.prototype.markVowelCombos = function(){
-    var vowelCombos = new RegExp("you|yea|iou|eau|oe|ai|au|ay|ey|ea|ee|ei|oa|oi|oo|ou|ui|oy", "ig");
+    var vowelCombos = new RegExp("you|yea|iou|eau|oe|ai|au|ay|ey|ea|ee|ie|ei|oa|oi|oo|ou|ui|oy", "ig");
     this.word = this.word.replace(vowelCombos, "@");
     return this;
   }
 
   Word.prototype.markConsCombos = function(){
-    var consCombos = new RegExp("qu|ce|ng|ch|rt|[#{" + consonants + "}h]", "ig");
+    var consCombos = new RegExp("qu|ng|ch|rt|[#{" + consonants + "}h]", "ig");
     this.word = this.word.replace(consCombos, "=");
     return this;
   }
