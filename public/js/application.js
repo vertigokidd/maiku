@@ -2,17 +2,24 @@
 
 $(document).ready(function() {
 
-// Give user feedback after Maiku AJAX request //
+// Give user feedback after AJAX request //
 
   $("button").first().click(function(event){
     event.preventDefault();
     var poem_form = $(".poem-form").serialize();
     $.post('/', poem_form, function(response){
       $(".selection").html(response);
-      $("#userfeedback").fadeIn('slow');
+      $("#userfeedback").fadeIn('slow').delay(2000).fadeOut('slow');
       $(".poem-form input").val("");
     });
   });
+
+  // $("button").last().click(function(event){
+  //   event.preventDefault();
+  //   $.get('/login', function(data) {
+  //     /*optional stuff to do after success */
+  //   });
+  // });
 
 
 // Count Syllables Using Word Object and Chaining Methods //

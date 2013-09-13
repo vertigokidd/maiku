@@ -1,21 +1,21 @@
 <div class="page-elements">
 <h1>Maiku</h1>
-<h2>Make a Haiku.</h2>
+<h2>Make a Haiku. Share it.</h2>
 <p id="userfeedback" hidden="true">Your poem has been tweeted. Write another?</p>
-<form class="poem-form" action="/create" method="POST">
-  <label for="line_one">First Line:<input id="lineOne" type="text" name="line_one" autocomplete="off"></input>
+<form class="poem-form" action="/" method="POST">
+  <label for="line_one">First Line:<input id="lineOne" type="text" name="poem[line_one]" autocomplete="off"></input>
   <div id="lineOneCount" class="count-div"><p>Syllables Remaining: 5</p></div></label>
 
-  <label for="line_two">Second Line:<input id="lineTwo" type="text" name="line_two" autocomplete="off"></input>
+  <label for="line_two">Second Line:<input id="lineTwo" type="text" name="poem[line_two]" autocomplete="off"></input>
   <div id="lineTwoCount" class="count-div"><p>Syllables Remaining: 7</p></div></label>
 
-  <label for="line_three">Third Line:<input id="lineThree" type="text" name="line_three" autocomplete="off"></input>
+  <label for="line_three">Third Line:<input id="lineThree" type="text" name="poem[line_three]" autocomplete="off"></input>
   <div id="lineThreeCount" class="count-div"><p>Syllables Remaining: 5</p></div></label>
   <div class="sharebox">
     <p class="sharetext">Share Your Poem:</p>
-    <button>Set It Free</button>
+    <button name='maiku_tweet' value='true'>Set It Free</button>
     <p class="or">- or -</p>
-    <button>Share On Twitter</button>
+    <button name='maiku_tweet' value='false'>Share On Twitter</button>
   </div>
 </form>
 
