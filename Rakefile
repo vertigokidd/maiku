@@ -130,7 +130,7 @@ desc 'Drop, Create, Migrate, and Seed'
 task 'funky' => ["db:drop", "db:create", "db:migrate", "db:seed"]
 
 
-desc "Run the specs"
-RSpec::Core::RakeTask.new(:spec)
+# desc "Run the specs"
+# RSpec::Core::RakeTask.new(:spec)
 
-task :default  => :specs
+# task :default  => :specs
