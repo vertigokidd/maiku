@@ -1,8 +1,3 @@
-<h3><%= @haiku.line_one %><h3>
-<h3><%= @haiku.line_two %><h3>
-<h3><%= @haiku.line_three %><h3>
-<% if @link %>
-  <h4>- <a href="<%= @link %>"><%= @author %></a></h4>
-<% elsif @author %>
-  <h4>- <%= @author %></h4>
+<% split_tweets(@haiku.content).each do |line| %>
+  <h3><%= line %></h3>
 <% end %>
