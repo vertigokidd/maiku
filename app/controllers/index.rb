@@ -2,8 +2,11 @@
 
 get '/' do
   session.clear
-  random = rand(1..Haiku.count)
-  @haiku = Haiku.find(random)
+  if tweets_stale?
+    destroy_tweets
+    get_tweets
+  end
+  @haiku = Haiku.order("created_at DESC").last
   erb :index
 end
 
@@ -27,8 +30,7 @@ get '/auth' do
                                 )
   tweeter.update(session[:tweet] + "(made with @maikuapp)")
 
-  random = rand(1..Haiku.count)
-  @haiku = Haiku.find(random)
+  @haiku = Haiku.last
   @feedback = "true"
   erb :index
 end
@@ -43,8 +45,7 @@ post '/' do
   TWEET
   if request.xhr?
     Twitter.update(@tweet)  
-    random = rand(1..Haiku.count)
-    @haiku = Haiku.find(random)
+    @haiku = Haiku.last
     erb :_poem_layout, layout: false
   else
     session[:tweet] = @tweet
