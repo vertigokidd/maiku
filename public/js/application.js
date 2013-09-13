@@ -4,13 +4,16 @@ $(document).ready(function() {
 
 // Give user feedback after AJAX request //
 
-  $("button").first().click(function(event){
+  $(".button").first().click(function(event){
     event.preventDefault();
     var poem_form = $(".poem-form").serialize();
+    console.log(poem_form);
     $.post('/', poem_form, function(response){
       $(".selection").html(response);
       $("#userfeedback").fadeIn('slow').delay(2000).fadeOut('slow');
-      $(".poem-form input").val("");
+      $(".poem-form input").first().val("");
+      $($(".poem-form input")[1]).val("");
+      $($(".poem-form input")[2]).val("");
     });
   });
 

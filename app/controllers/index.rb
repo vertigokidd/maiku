@@ -4,14 +4,6 @@ get '/' do
   session.clear
   random = rand(1..Haiku.count)
   @haiku = Haiku.find(random)
-  # if @haiku.author[0] == "@"
-  #   @author = @haiku.author
-  #   @link = "http://twitter.com/#{@haiku.author[1..-1]}"
-  # elsif @haiku.author != ""
-  #   @author = @haiku.author
-  # else
-  #   @author = "anonymous"
-  # end
   erb :index
 end
 
@@ -33,7 +25,7 @@ get '/auth' do
   tweeter = Twitter::Client.new(:oauth_token => user_token,
                                 :oauth_token_secret => user_secret
                                 )
-  tweeter.update(session[:tweet] + "  ...made @maikuapp")
+  tweeter.update(session[:tweet] + "  (made with @maikuapp)")
   redirect '/'
 end
 
@@ -46,15 +38,12 @@ post '/' do
 #{params[:poem][:line_three]}
   TWEET
   Haiku.create(params[:poem])
-  if params[:maiku_tweet] == true
-    Twitter.update(@tweet)
-    if request.xhr?
-      random = rand(1..Haiku.count)
-      @haiku = Haiku.find(random)
-      erb :_poem_layout, layout: false
-    else
-      redirect '/'
-    end
+  p params
+  if request.xhr?
+    Twitter.update(@tweet)  
+    random = rand(1..Haiku.count)
+    @haiku = Haiku.find(random)
+    erb :_poem_layout, layout: false
   else
     session[:tweet] = @tweet
     redirect '/login'
