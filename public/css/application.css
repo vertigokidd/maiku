@@ -48,6 +48,10 @@ p {
   margin:10px 0;
 }
 
+.sharebox {
+  width:275px;
+}
+
 .sharetext {
   text-align:center;
   margin-top:40px;
@@ -82,7 +86,7 @@ p {
 
 button {
   display:block;
-  margin:20px auto;
+  margin:20px 0;
   width:100%;
 }
 

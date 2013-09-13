@@ -10,10 +10,12 @@
 
   <label for="line_three">Third Line:<input id="lineThree" type="text" name="line_three" autocomplete="off"></input>
   <div id="lineThreeCount" class="count-div"><p>Syllables Remaining: 5</p></div></label>
-  <p class="sharetext">Share Your Poem:</p>
-  <button>Set It Free</button>
-  <p class="or">- or -</p>
-  <button>Share On Twitter</button>
+  <div class="sharebox">
+    <p class="sharetext">Share Your Poem:</p>
+    <button>Set It Free</button>
+    <p class="or">- or -</p>
+    <button>Share On Twitter</button>
+  </div>
 </form>
 
 <div class="selection">
@@ -22,7 +24,7 @@
   <h3><%= @haiku.line_three %><h3>
   <% if @link %>
     <h4>- <a href="<%= @link %>"><%= @author %></a></h4>
-  <% else %>
+  <% elsif @author %>
     <h4>- <%= @author %></h4>
   <% end %>
 </div>
