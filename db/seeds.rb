@@ -1,4 +1,1 @@
-Haiku.create(line_one: "Every Friday",
-             line_two: "Beer seems to flow endlessly",
-             line_three: "I wake up aching",
-             author: "@rheedio")
+Haiku.create(content: "Rendezvous horsey\nCha cha museum hoarsely\nCat mouse trainer ducks")
