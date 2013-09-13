@@ -4,9 +4,14 @@ body {
 }
 
 .container {
-  margin: 20px auto;
+  margin: 0 auto;
   width: 600px;
   padding: 0px 0px 0px 0px;
+}
+
+.page-elements {
+  padding:10px;
+  opacity:0.8;
 }
 
 th {
@@ -36,6 +41,12 @@ h4 {
 
 h4 a {
   text-decoration: none;
+}
+
+#userfeedback {
+  position:absolute;
+  left:35%;
+  color:#5959AB;
 }
 
 
@@ -81,13 +92,21 @@ p {
   display:inline-block;
   position:relative;
   left:100px;
-  top:-175px;
+  top:-250px;
 }
 
 button {
   display:block;
+  padding:10px;
   margin:20px 0;
   width:100%;
+  background-color:#AAD4BF;
+  border:none;
+  border-radius:5px;
+}
+
+button:hover {
+  background-color:#AAD4D4;
 }
 
 footer {

@@ -16,7 +16,7 @@ end
 
 # POST ==============================
 
-post '/create' do
+post '/' do
   Haiku.create(params)
   tweet = <<-TWEET
 #{params[:line_one]}
@@ -24,5 +24,12 @@ post '/create' do
 #{params[:line_three]}
   TWEET
   Twitter.update(tweet)
-  redirect '/'
+
+  if request.xhr?
+    random = rand(1..Haiku.count)
+    @haiku = Haiku.find(random)
+    erb :_poem_layout, layout: false
+  else
+    redirect '/'
+  end
 end

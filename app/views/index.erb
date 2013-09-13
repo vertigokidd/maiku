@@ -1,6 +1,7 @@
+<div class="page-elements">
 <h1>Maiku</h1>
-<h2>Make a Haiku poem.</h2>
-
+<h2>Make a Haiku.</h2>
+<p id="userfeedback" hidden="true">Your poem has been tweeted. Write another?</p>
 <form class="poem-form" action="/create" method="POST">
   <label for="line_one">First Line:<input id="lineOne" type="text" name="line_one" autocomplete="off"></input>
   <div id="lineOneCount" class="count-div"><p>Syllables Remaining: 5</p></div></label>
@@ -19,14 +20,8 @@
 </form>
 
 <div class="selection">
-  <h3><%= @haiku.line_one %><h3>
-  <h3><%= @haiku.line_two %><h3>
-  <h3><%= @haiku.line_three %><h3>
-  <% if @link %>
-    <h4>- <a href="<%= @link %>"><%= @author %></a></h4>
-  <% elsif @author %>
-    <h4>- <%= @author %></h4>
-  <% end %>
+<%= erb :_poem_layout %>
+</div>
 </div>
 
 

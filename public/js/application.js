@@ -2,6 +2,21 @@
 
 $(document).ready(function() {
 
+// Give user feedback after Maiku AJAX request //
+
+  $("button").first().click(function(event){
+    event.preventDefault();
+    var poem_form = $(".poem-form").serialize();
+    $.post('/', poem_form, function(response){
+      $(".selection").html(response);
+      $("#userfeedback").fadeIn('slow');
+      $(".poem-form input").val("");
+    });
+  });
+
+
+// Count Syllables Using Word Object and Chaining Methods //
+
   function returnCount(words, count) {
     totalSyllables = 0
     for (var i=0;i<words.length;i++){
@@ -11,9 +26,7 @@ $(document).ready(function() {
     return (count - totalSyllables)
   }
 
-
 // Live Document Checking //
-
 
   $("#lineOne").keyup(function(){
     var line = $(this).val();
