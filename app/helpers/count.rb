@@ -49,4 +49,9 @@ p count_syllables('you') == 1
 p count_syllables('prince') == 1
 p count_syllables("can't") == 1
 
+
+"someday"
+"amphibious"
+"curiousity"
+
 end

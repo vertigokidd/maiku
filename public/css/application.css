@@ -55,6 +55,10 @@ p {
   padding:0;
 }
 
+.poem-form input {
+  width:275px;
+}
+
 .count-div {
   margin:0 0 20px 0;
 }
@@ -62,6 +66,7 @@ p {
 .selection {
   display:inline-block;
   position:relative;
+  left:100px;
   top:-125px;
 }
 
