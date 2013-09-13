@@ -6,7 +6,7 @@ $(document).ready(function() {
     totalSyllables = 0
     for (var i=0;i<words.length;i++){
       words[i] = new Word(words[i])
-      totalSyllables += words[i].findLy().findEd().findTailEs().markVowelCombos().markConsCombos().markSilentEs().markRemainingVowels().countSyllables();
+      totalSyllables += words[i].findLy().findEd().findTailEs().markSilentEs().markConsCombos().markVowelCombos().markRemainingVowels().countSyllables();
     }
     return (count - totalSyllables)
   }
@@ -34,6 +34,8 @@ $(document).ready(function() {
   });
 
 // Word object and object methods //
+// Adapted from Ruby-Syllable Counter //
+// https://github.com/testobsessed/Ruby-Syllable-Counter //
 
   var consonants = "bcdfghjklmnpqrstvwxz";
   var vowels = "aeiouy";
@@ -64,7 +66,7 @@ $(document).ready(function() {
   }
 
   Word.prototype.findTailEs = function(){
-    var es = new RegExp("ce$|se$", "ig");
+    var es = new RegExp("me$|ce$|se$|re$", "ig");
     if (es.test(this.word)) {
       this.word = this.word.replace(es, "")
       this.suffixBonus = 0;
@@ -85,7 +87,7 @@ $(document).ready(function() {
   }
 
   Word.prototype.markSilentEs = function(){
-    var silentE = new RegExp("[#{" + vowels + "}@][#{" + consonants + "}=]e$", "ig");
+    var silentE = new RegExp("[#{vowels}@][#{consonants}=]e[#{consonants}=]|[#{vowels}@][#{consonants}=]e$", "ig");
     this.word = this.word.replace(silentE, "@|");
     return this;
   }

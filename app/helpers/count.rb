@@ -23,15 +23,15 @@ def count_syllables(word)
     suffix_bonus = 0 
     processed.gsub!(/ed$/, "")
   end
-  #puts "*** 1 #{processed}"
-  processed.gsub!(/you|iou|eau|ai|au|ay|ea|ee|ei|oa|oi|oo|ou|ui|oy/, "@") #vowel combos
-  #puts "*** 2 #{processed}"
+  # puts "*** 1 #{processed}"
+  processed.gsub!(/[#{vowels}@][#{consonants}]e[#{consonants}]|[#{vowels}@][#{consonants}=]e$/, "@|") # remove silent e
+  puts "*** 2 #{processed}"
   processed.gsub!(/qu|ng|ch|ce|rt|[#{consonants}h]/, "=") #consonant combos
-  #puts "*** 3 #{processed}"
-  processed.gsub!(/[#{vowels}@][#{consonants}=]e$/, "@|") # remove silent e
-  #puts "*** 4 #{processed}"
+  # puts "*** 3 #{processed}"
+  processed.gsub!(/you|iou|eau|oe|ai|au|ay|ey|ea|ee|ie|ei|oa|oi|oo|ou|ui|oy/, "@") #vowel combos
+  # puts "*** 4 #{processed}"
   processed.gsub!(/[#{vowels}]/, "@") #all remaining vowels will be counted
-  #puts "*** 5 #{processed}"
+  puts "*** 5 #{processed}"
   return processed.count("@") + suffix_bonus
 end
 
@@ -48,10 +48,13 @@ p count_syllables('aspiring') == 3
 p count_syllables('you') == 1
 p count_syllables('prince') == 1
 p count_syllables("can't") == 1
+p count_syllables("sometimes") == 2
+p count_syllables("someday")  == 2
+p count_syllables("amphibious")  == 4
+p count_syllables("curiosity") == 5
+p count_syllables("home") == 1
+p count_syllables("where") == 1
 
 
-"someday"
-"amphibious"
-"curiousity"
 
 end
