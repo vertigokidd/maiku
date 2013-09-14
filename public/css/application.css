@@ -113,6 +113,10 @@ p {
 
 .button:hover {
   background-color:#AAD4D4;
+  -moz-transition: background-color 0.5s linear;
+  -o-transition: background-color 0.5s linear;
+  -webkit-transition: background-color 0.5s linear;
+  transition: background-color 0.5s linear;
 }
 
 footer {
