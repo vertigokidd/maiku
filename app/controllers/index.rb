@@ -6,7 +6,7 @@ get '/' do
     destroy_tweets
     get_tweets
   end
-  @haiku = Haiku.order("created_at DESC").last
+  @haiku = Haiku.order("tweeted_at").last
   erb :index
 end
 
@@ -30,7 +30,7 @@ get '/auth' do
                                 )
   tweeter.update(session[:tweet] + "(made with @maikuapp)")
 
-  @haiku = Haiku.last
+  @haiku = Haiku.order("tweeted_at").last
   @feedback = "true"
   erb :index
 end
