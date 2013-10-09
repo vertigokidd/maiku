@@ -1,5 +1,3 @@
-
-
 $(document).ready(function() {
 
 // Give user feedback after AJAX request //
@@ -68,7 +66,7 @@ $(document).ready(function() {
     $.each(this.words, function(index, value){
       console.log(value);
       var word = new Word(value);
-      console.log(word);
+      word.getSyllables();
     });
   }
 
@@ -78,8 +76,21 @@ $(document).ready(function() {
   }
 
   Word.prototype.getSyllables = function(){
-    
+    var getUrl = 'http://www.dictionaryapi.com/api/v1/references/collegiate/xml/' +
+    this.word + '?key=7e46a4ea-6306-44a5-b73e-512180dd0374'
+    console.log(getUrl);
+    $.get(getUrl, function(response) {
+      // console.log(response);
+      // var xmlDoc = $.parseXML(response);
+      // console.log(xmlDoc);
+      // $xml = $(xmlDoc);
+      // var wordString = $xml.find("hw");
+      // console.log(wordString);
+    }, 'jsonp');
   }
+
+  //ERRORING OUT HERE BECAUSE CROSS ORIGIN BULLSHIT //
+  // NEED JSON BACK FROM DICTIONARY //
 
 // Word object and object methods //
 // Adapted from Ruby-Syllable Counter //
