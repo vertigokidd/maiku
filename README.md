@@ -4,7 +4,7 @@ A Ruby web app built using Sinatra that encourages people to write haikus.
 
 # Installation
 
-Clone the repo and download to your local machine. Run `bundle` and `rake funky` from the app's directory to create the database. Then run `shotgun` to start the local server. App will be hosted at `localhost:9393`.
+Clone the repo to your local machine. Run `bundle` and `rake funky` from the app's directory to create the database. Then run `shotgun` to start the local server. App will be hosted at `localhost:9393`.
 
 # Twitter
 
