@@ -11,8 +11,11 @@ Clone the repo and download to your local machine. Run `bundle` and `rake funky`
 Twitter posts are made using OAuth. For local tests, create a `twitter.yaml` file and save it in the `config` directory. The YAML file should contain the following lines:
 
 >TWITTER_KEY: [YOUR_TWITTER_KEY]
+
 >TWITTER_SECRET: [YOUR_TWITTER_SECRET]
+
 >OAUTH_TOKEN: [YOUR_APP_OAUTH_TOKEN]
+
 >OAUTH_TOKEN_SECRET: [YOUR_APP_OAUTH_SECRET]
 
 Currently, users can post either using the app's Twitter account or their own.
