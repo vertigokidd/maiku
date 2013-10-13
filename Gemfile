@@ -7,7 +7,6 @@ gem 'pg'
 # Sinatra driver
 gem 'sinatra'
 gem 'sinatra-contrib'
-gem 'sinatra/cross_origin'
 
 # Use Thin for our web server
 gem 'thin'
