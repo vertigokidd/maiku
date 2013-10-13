@@ -76,17 +76,19 @@ $(document).ready(function() {
   }
 
   Word.prototype.getSyllables = function(){
-    var getUrl = 'http://www.dictionaryapi.com/api/v1/references/collegiate/xml/' +
-    this.word + '?key=7e46a4ea-6306-44a5-b73e-512180dd0374'
-    console.log(getUrl);
+    // var getUrl = 'http://www.dictionaryapi.com/api/v1/references/collegiate/xml/' +
+    // this.word + '?key=7e46a4ea-6306-44a5-b73e-512180dd0374'
+    // console.log(getUrl);
+    var getUrl = '/syllables/' + this.word
     $.get(getUrl, function(response) {
+      console.log(response);
       // console.log(response);
       // var xmlDoc = $.parseXML(response);
       // console.log(xmlDoc);
       // $xml = $(xmlDoc);
       // var wordString = $xml.find("hw");
       // console.log(wordString);
-    }, 'jsonp');
+    });
   }
 
   //ERRORING OUT HERE BECAUSE CROSS ORIGIN BULLSHIT //

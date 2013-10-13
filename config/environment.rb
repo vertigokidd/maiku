@@ -16,7 +16,12 @@ require 'active_record'
 require 'logger'
 
 require 'sinatra'
+require 'sinatra/cross_origin'
 require "sinatra/reloader" if development?
+
+configure do
+  enable :cross_origin
+end
 
 require 'erb'
 
