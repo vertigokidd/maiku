@@ -30,9 +30,9 @@ $(document).ready(function() {
 
 // Live Document Checking //
 
-  var lineOne = new Line(5);
+  var lineOne = new Line("#lineOne", 5);
 
-  $("#lineOne").keyup(function(event){
+  $(lineOne.selector).keyup(function(event){
     if(event.keyCode == 32) {
       var words_in_line = $(this).val().split(/[ ,]+/);
       words_in_line.pop();
@@ -57,17 +57,18 @@ $(document).ready(function() {
   });
 
 
-  function Line(count) {
+  function Line(selector, count) {
+    this.selector = selector;
     this.count = count;
+    this.remaining;
     this.words = [];
   }
 
   Line.prototype.countSyllables = function(){
     var self = this
+    self.remaining = self.count
     $.each(this.words, function(index, value){
-      console.log(value);
       var word = new Word(value);
-      console.log(self.count);
       word.getSyllables(self, word);
     });
   }
@@ -81,13 +82,13 @@ $(document).ready(function() {
     var getUrl = '/syllables/' + word.word
     $.get(getUrl, function(response) {
       word.syllables = parseInt(response);
-      line.count -= word.syllables;
+      line.remaining -= word.syllables;
       console.log(line.count);
+      $(line.selector + "Count").html("<p>Syllables Remaining: " + line.remaining + "</p>");
     });
   }
 
-  //ERRORING OUT HERE BECAUSE CROSS ORIGIN BULLSHIT //
-  // NEED JSON BACK FROM DICTIONARY //
+
 
 // Word object and object methods //
 // Adapted from Ruby-Syllable Counter //
