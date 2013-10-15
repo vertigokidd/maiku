@@ -61,6 +61,7 @@ $(document).ready(function() {
     this.selector = selector;
     this.count = count;
     this.remaining;
+    this.checked_words = []
     this.words = [];
   }
 
@@ -71,6 +72,10 @@ $(document).ready(function() {
       var word = new Word(value);
       word.getSyllables(self, word);
     });
+  }
+
+  Line.prototype.checked_word = function(word){
+
   }
 
   function Word(word) {
