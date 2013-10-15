@@ -31,7 +31,8 @@ get '/auth' do
 end
 
 get '/syllables/:word' do
-  fetch("http://www.dictionaryapi.com/api/v1/references/collegiate/xml/#{params[:word]}?key=7e46a4ea-6306-44a5-b73e-512180dd0374")
+  xml_data = fetch("http://www.dictionaryapi.com/api/v1/references/collegiate/xml/#{params[:word]}?key=7e46a4ea-6306-44a5-b73e-512180dd0374")
+  extract_syllable_count(xml_data)
 end
 
 

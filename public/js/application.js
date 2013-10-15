@@ -63,10 +63,12 @@ $(document).ready(function() {
   }
 
   Line.prototype.countSyllables = function(){
+    var self = this
     $.each(this.words, function(index, value){
       console.log(value);
       var word = new Word(value);
-      word.getSyllables();
+      console.log(self.count);
+      word.getSyllables(self, word);
     });
   }
 
@@ -75,19 +77,12 @@ $(document).ready(function() {
     this.syllables = 0;
   }
 
-  Word.prototype.getSyllables = function(){
-    // var getUrl = 'http://www.dictionaryapi.com/api/v1/references/collegiate/xml/' +
-    // this.word + '?key=7e46a4ea-6306-44a5-b73e-512180dd0374'
-    // console.log(getUrl);
-    var getUrl = '/syllables/' + this.word
+  Word.prototype.getSyllables = function(line, word){
+    var getUrl = '/syllables/' + word.word
     $.get(getUrl, function(response) {
-      console.log(response);
-      // console.log(response);
-      // var xmlDoc = $.parseXML(response);
-      // console.log(xmlDoc);
-      // $xml = $(xmlDoc);
-      // var wordString = $xml.find("hw");
-      // console.log(wordString);
+      word.syllables = parseInt(response);
+      line.count -= word.syllables;
+      console.log(line.count);
     });
   }
 
