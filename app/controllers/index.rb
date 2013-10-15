@@ -31,11 +31,7 @@ get '/auth' do
 end
 
 get '/syllables/:word' do
-  cross_origin :allow_origin => "http://www.dictionaryapi.com",
-  :allow_methods => [:get]
-  content_type :xml
-  headers['Access-Control-Allow-Origin'] = 'http://www.dictionaryapi.com'
-  redirect "http://www.dictionaryapi.com/api/v1/references/collegiate/xml/#{params[:word]}?key=7e46a4ea-6306-44a5-b73e-512180dd0374"
+  fetch("http://www.dictionaryapi.com/api/v1/references/collegiate/xml/#{params[:word]}?key=7e46a4ea-6306-44a5-b73e-512180dd0374")
 end
 
 

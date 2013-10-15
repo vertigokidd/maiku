@@ -23,6 +23,12 @@ require 'erb'
 require 'oauth'
 require 'twitter'
 
+
+options '/*' do
+  response["Access-Control-Allow-Headers"] = "origin, x-requested-with, content-type"
+end
+
+
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 
